@@ -41,5 +41,42 @@ def cria_lista_sem_repeticao(tamanho):
 def cria_lista_com_repeticao(tamanho, inicio_intervalo, fim_intervalo):
     return [random.randint(inicio_intervalo, fim_intervalo) for x in range(tamanho)]
 
+def insertion_sort(alist):
+    for index in range(1,len(alist)):
+
+        currentvalue = alist[index]
+        position = index
+
+        while position>0 and alist[position-1]>currentvalue:
+            alist[position]=alist[position-1]
+            position = position-1
+
+        alist[position]=currentvalue
+    return alist
+
+def bubble_sort(alist):
+    for passnum in range(len(alist)-1,0,-1):
+        for i in range(passnum):
+            if alist[i]>alist[i+1]:
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp
+    return alist
+
+def selection_sort(alist):
+    for fillslot in range(len(alist)-1,0,-1):
+       positionOfMax=0
+       for location in range(1,fillslot+1):
+           if alist[location]>alist[positionOfMax]:
+               positionOfMax = location
+
+       temp = alist[fillslot]
+       alist[fillslot] = alist[positionOfMax]
+       alist[positionOfMax] = temp
+    return alist
+
 if __name__ == '__main__':
-    pass
+    results = {'Selection': [], 'Insertion': [], 'Bubble': []}
+    result = {'Selection': 0, 'Insertion': 0, 'Bubble': 0}
+    wins = {'Selection': 0, 'Insertion': 0, 'Bubble': 0}
+    
