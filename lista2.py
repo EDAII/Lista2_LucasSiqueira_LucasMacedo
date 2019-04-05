@@ -1,6 +1,7 @@
 from time import time
 from decimal import Decimal
 from random import randint
+from random import random
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
@@ -33,6 +34,12 @@ def calc_media(results):
     for key in results.keys():
         averages[key] = sum(results[key]) / len(results[key])
     return averages
+
+def cria_lista_sem_repeticao(tamanho):
+    return random.sample(range(0, tamanho + 1), tamanho)
+
+def cria_lista_com_repeticao(tamanho, inicio_intervalo, fim_intervalo):
+    return [random.randint(inicio_intervalo, fim_intervalo) for x in range(tamanho)]
 
 if __name__ == '__main__':
     pass
